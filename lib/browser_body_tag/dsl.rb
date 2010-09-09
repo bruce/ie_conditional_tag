@@ -7,10 +7,25 @@ module BrowserBodyTag
       instance_eval(&block) if block
     end
 
-    def add_condition(terms, html_options = {})
-      @config.conditions << Condition.new(terms, html_options)
+    # Set HTML options based on an IE condition
+    #
+    # call-seq:
+    #   on 6, class: 'ie6'
+    #   on 'lt IE 7', class: 'ie6'
+    #   on 'gte IE 9', class: 'ie9'
+    #   on '!IE', 
+    def on(expression, options = {})
+      klass = expression.upcase == '!IE' ? UnprotectedCondition : ProtectedCondition
+      add_condition klass, expression, options
+    end
+
+    private
+    
+    def add_condition(klass, expression, options = {})
+      @config.conditions << klass.new(expression, options)
     end
     
   end
   
 end
+

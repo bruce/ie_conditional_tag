@@ -4,28 +4,20 @@ require 'action_view/template/handlers/erb'
 class TestBrowserBodyTag < ActionView::TestCase
   tests BrowserBodyTag::Helper
 
-  def setup
-    super
-    BrowserBodyTag.config.clear
+  setup do
     @response = ActionController::TestResponse.new
-  end
-
-  def test_adding_a_condition
-    assert_equal 0, BrowserBodyTag.config.conditions.size
+    BrowserBodyTag.config.clear
     BrowserBodyTag.configure do |config|
-      config.add_condition '!IE', :class => 'not-ie'
+      config.on 'lt IE 7', :class => 'ie6'
+      config.on 'IE 7', :class => 'ie7'
+      config.on 'IE 8', :class => 'ie8'
+      config.on 'IE 9', :class => 'ie9'
+      config.on 'gt IE 9'
+      config.on '!IE'
     end
-    assert_equal 1, BrowserBodyTag.config.conditions.size
   end
 
-  def test_ie_tag_conditional
-    assert_dom_equal(
-      %(<!--[if IE 6]><body><![endif]-->),
-      ie_tag_conditional("IE 6", tag(:body, nil, true))
-    )
-  end
-
-  def test_browser_body_tag_with_no_options_and_no_block
+  test "browser body tag with no options and no block" do
     rendered = browser_body_tag
     # assert_match Regexp.escape('<!--[if lt IE 7]><body class="ie6"><![endif]-->'), rendered
     # assert_match Regexp.escape('<!--[if IE 7]><body class="ie7"><![endif]-->'), rendered

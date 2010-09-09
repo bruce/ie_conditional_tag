@@ -1,23 +1,28 @@
 module BrowserBodyTag
 
+  # Abstract
   class Condition
 
-    def initialize(terms, html_options = {})
-      @terms = terms
-      @html_options = html_options
+    def initialize(expression, options = {})
+      @expression = expression
+      @options = options
     end
     
-    def wrap(options = {})
-      inside = yield(merge_options(options))
-      "<!--[if #{@terms}]>#{inside}<![endif]-->"
-    end
-
     private
 
     def merge_options(options = {})
-      options.merge(:class => [@html_options[:class], options[:class]].compact.join(' '))
+      css_class = options.delete(:class)
+      overridden = options.merge(@options)
+      if options[:class] || css_class
+        overridden.merge(:class => [@options[:class], css_class].compact.join(' '))
+      else
+        overridden
+      end
     end
     
   end
 
 end
+
+
+
