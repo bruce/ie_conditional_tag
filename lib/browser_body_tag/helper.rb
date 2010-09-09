@@ -5,7 +5,7 @@ module BrowserBodyTag
     def browser_body_tag(options = {}, &block)
       concat ie_tag_conditional("lt IE 7", tag(:body, merge_class("ie6", options), true))
       (7..9).each do |n|
-        concat ie_tag_conditional("IE #{n}", tag(:body, merge_class("ie#{n}"), true))
+        concat ie_tag_conditional("IE #{n}", tag(:body, merge_class("ie#{n}", options), true))
       end
       concat raw('<!--[if (gt IE 9) | !(IE)]><!-->' + tag(:body, options, true) + '<!--<![endif]-->')
       if block_given?
