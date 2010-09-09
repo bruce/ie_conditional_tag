@@ -1,6 +1,7 @@
 module BrowserBodyTag
 
   class Configuration
+    include Enumerable
 
     def clear
       conditions.clear
@@ -8,7 +9,11 @@ module BrowserBodyTag
     
     def conditions
       @conditions ||= []
-    end    
+    end
+
+    def each(&block)
+      conditions.each(&block)
+    end
     
   end
 
