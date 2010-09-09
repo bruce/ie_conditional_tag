@@ -19,11 +19,12 @@ class TestIEConditionalTag < ActionView::TestCase
 
   test "browser body tag with no options and no block" do
     rendered = ie_conditional_tag(:html)
-    # assert_match Regexp.escape('<!--[if lt IE 7]><html class="ie6"><![endif]-->'), rendered
-    # assert_match Regexp.escape('<!--[if IE 7]><html class="ie7"><![endif]-->'), rendered
-    # assert_match Regexp.escape('<!--[if IE 8]><html class="ie8"><![endif]-->'), rendered
-    # assert_match Regexp.escape('<!--[if IE 9]><html class="ie9"><![endif]-->'), rendered
-    # assert_match Regexp.escape('<!--[if (gt IE 9) | !(IE)]><!--><html><!--<![endif]-->'), rendered
+    assert rendered.include?('<!--[if lt IE 7]><html class="ie6"><![endif]-->')
+    assert rendered.include?('<!--[if IE 7]><html class="ie7"><![endif]-->')
+    assert rendered.include?('<!--[if IE 8]><html class="ie8"><![endif]-->')
+    assert rendered.include?('<!--[if IE 9]><html class="ie9"><![endif]-->')
+    assert rendered.include?('<!--[if gt IE 9]><html><![endif]-->')
+    assert rendered.include?('<!--[if !IE]><!--><html><!--<![endif]-->')
   end
 
 end
