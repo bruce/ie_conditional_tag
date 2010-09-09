@@ -1,1 +1,1 @@
-ActionController::Base.helper(BrowserBodyTagHelper)
+ActionController::Base.helper(BrowserBodyTag::Helper)
