@@ -1,0 +1,9 @@
+=============================================================
+
+Added an initializer at:
+
+    config/initializers/browser_body_tag.rb
+
+You can modify this file to change browser-specific settings.
+
+=============================================================

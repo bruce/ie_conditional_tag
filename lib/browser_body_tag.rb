@@ -1,4 +1,4 @@
-module BodyBrowserTag
+module BrowserBodyTag
 
   def self.config
     @config ||= Configuration.new
