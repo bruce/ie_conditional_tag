@@ -1,14 +1,12 @@
 require 'helper'
-require 'action_view/template/handlers/erb'
 
-class TestBrowserBodyTag < ActionView::TestCase
+class TestConfiguration < ActiveSupport::TestCase
 
-  def setup
-    super
+  setup do
     BrowserBodyTag.config.clear
   end
 
-  def test_adding_a_condition
+  test "adding a condition" do
     assert_equal 0, BrowserBodyTag.config.conditions.size
     BrowserBodyTag.configure do |config|
       config.on '!IE', :class => 'not-ie'
