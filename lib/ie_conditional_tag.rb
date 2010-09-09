@@ -1,4 +1,4 @@
-module BrowserBodyTag
+module IEConditionalTag
 
   def self.config
     @config ||= Configuration.new

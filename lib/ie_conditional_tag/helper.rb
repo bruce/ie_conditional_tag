@@ -1,9 +1,9 @@
-module BrowserBodyTag
+module IEConditionalTag
 
   module Helper
 
-    def browser_body_tag(options = {}, &block)
-      result = BrowserBodyTag.process(options) do |modified_options|
+    def ie_conditional_tag(options = {}, &block)
+      result = IEConditionalTag.process(options) do |modified_options|
         tag(:body, modified_options, true)
       end
       if block_given?

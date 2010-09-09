@@ -1,4 +1,4 @@
-module BrowserBodyTag
+module IEConditionalTag
 
   # Abstract
   class Condition

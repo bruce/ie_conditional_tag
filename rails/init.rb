@@ -1,1 +1,1 @@
-ActionController::Base.helper(BrowserBodyTag::Helper)
+ActionController::Base.helper(IEConditionalTag::Helper)

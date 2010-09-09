@@ -1,7 +1,6 @@
-Browser Body Tag Helper
-=======================
+IE Conditional Tag
+==================
 
-TODO
 
 Copyright
 ---------

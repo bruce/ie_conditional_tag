@@ -1,4 +1,4 @@
-module BrowserBodyTag
+module IEConditionalTag
 
   class UnprotectedCondition < Condition
 

@@ -4,11 +4,11 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "browser_body_tag"
+    gem.name = "ie_conditional_tag"
     gem.summary = %Q{TODO: one-line summary of your gem}
     gem.description = %Q{TODO: longer description of your gem}
     gem.email = "bruce@codefluency.com"
-    gem.homepage = "http://github.com/bruce/browser_body_tag"
+    gem.homepage = "http://github.com/bruce/ie_conditional_tag"
     gem.authors = ["Anthony Burns", "Bruce Williams"]
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
@@ -46,7 +46,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "browser_body_tag #{version}"
+  rdoc.title = "ie_conditional_tag #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

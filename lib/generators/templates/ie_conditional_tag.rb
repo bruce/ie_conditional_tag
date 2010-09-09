@@ -1,11 +1,11 @@
-BrowserBodyTag.configure do |config|
+IEConditionalTag.configure do |config|
 
   # The standard `config.on` line looks like:
   #
   #   on IE_CONDITIONAL_COMMENT_EXPRESSION, HTML_OPTIONS
   #
   # The `:class` option is special; unlike other attributes, its value
-  # will be prepended to any `:class` attribute given to `browser_body_tag`.
+  # will be prepended to any `:class` attribute given to `ie_conditional_tag`.
   
   # Add CSS classes for IE 6 - 9
   config.on 'lt IE 7', :class => 'ie6'
