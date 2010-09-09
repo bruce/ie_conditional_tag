@@ -2,7 +2,7 @@ require 'helper'
 require 'action_view/template/handlers/erb'
 
 class TestBrowserBodyTag < ActionView::TestCase
-  tests BrowserBodyTagHelper
+  tests BrowserBodyTag::Helper
 
   def setup
     super
