@@ -8,4 +8,4 @@ require 'action_controller/test_case'
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'browser_body_tag_helper'
+require 'browser_body_tag/helper'
