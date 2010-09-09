@@ -3,15 +3,17 @@ module BrowserBodyTag
   module Helper
 
     def browser_body_tag(options = {}, &block)
-      concat ie_tag_conditional("lt IE 7", tag(:body, merge_class("ie6", options), true))
+      parts = []
+      parts << ie_tag_conditional("lt IE 7", tag(:body, merge_class("ie6", options), true))
       (7..9).each do |n|
-        concat ie_tag_conditional("IE #{n}", tag(:body, merge_class("ie#{n}", options), true))
+        parts << ie_tag_conditional("IE #{n}", tag(:body, merge_class("ie#{n}", options), true))
       end
-      concat raw('<!--[if (gt IE 9) | !(IE)]><!-->' + tag(:body, options, true) + '<!--<![endif]-->')
+      parts << raw('<!--[if (gt IE 9) | !(IE)]><!-->' + tag(:body, options, true) + '<!--<![endif]-->')
       if block_given?
-        yield
-        concat raw('</body>')
+        parts << capture(&block)
+        parts << raw('</body>')
       end
+      parts.join
     end
     
     def ie_tag_conditional(condition, tag)
