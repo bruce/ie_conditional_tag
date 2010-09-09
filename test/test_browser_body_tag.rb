@@ -6,7 +6,16 @@ class TestBrowserBodyTag < ActionView::TestCase
 
   def setup
     super
+    BrowserBodyTag.config.clear
     @response = ActionController::TestResponse.new
+  end
+
+  def test_adding_a_condition
+    assert_equal 0, BrowserBodyTag.config.conditions.size
+    BrowserBodyTag.configure do |config|
+      config.add_condition '!IE', :class => 'not-ie'
+    end
+    assert_equal 1, BrowserBodyTag.config.conditions.size
   end
 
   def test_ie_tag_conditional
