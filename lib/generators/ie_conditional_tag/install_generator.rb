@@ -1,4 +1,4 @@
-module IEConditionalTag
+module IeConditionalTag
   module Generators
     class InstallGenerator < Rails::Generators::Base
       
