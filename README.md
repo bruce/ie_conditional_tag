@@ -4,12 +4,12 @@ IE Conditional Tag
 This Rails plugin provides an easy way to insert a tag multiple times
 in an HTML document with IE conditional comments.  This is an
 alternate approach to conditional stylesheets and CSS hacks, and is
-explained in detail by Paul Irish[1].
+explained in detail by [Paul Irish][1].
 
 Example
 -------
 
-Shown generating the `html` tag (as recommended[1]), and adding a
+Shown generating the `html` tag (as [recommended][1]), and adding a
 custom class:
 
     <!DOCTYPE html>
@@ -38,6 +38,34 @@ This would give you (with some prettied indentation):
         <!-- your content -->
       </body>
     </html>
+
+`ie_conditional_tag` will also accept a block, so this also works:
+  
+    <!DOCTYPE html>
+    <%= ie_conditional_tag :html, :class => 'some-custom-class' do %>
+      <head>
+          <title>New HTML5 page</title>
+      </head>
+      <body>
+        <%= yield %>
+      </body>
+    <% end %>
+
+Wait, that's an ugly name!
+--------------------------
+
+We aimed for descriptive and agnostic; you may want to add a helper to
+call it, eg:
+
+    module ApplicationHelper
+
+      # ...
+
+      def html_tag(*args, &block)
+        ie_conditional_tag(*args, &block)
+      end
+
+    end
 
 Installation
 ------------
