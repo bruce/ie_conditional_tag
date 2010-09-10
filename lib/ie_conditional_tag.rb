@@ -1,5 +1,15 @@
-module IEConditionalTag
+require 'ie_conditional_tag/configuration'
+require 'ie_conditional_tag/dsl'
+require 'ie_conditional_tag/helper'
 
+require 'ie_conditional_tag/condition'
+require 'ie_conditional_tag/protected_condition'
+require 'ie_conditional_tag/unprotected_condition'
+
+require 'ie_conditional_tag/railtie'
+
+module IEConditionalTag
+  
   def self.config
     @config ||= Configuration.new
   end

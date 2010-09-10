@@ -72,7 +72,13 @@ call it, eg:
 Installation
 ------------
 
-Install as a gem plugin, or directly in `vendor/plugins`.
+Use bundler.  In your `Gemfile`:
+
+    gem 'ie_conditional_tag'
+
+Install it:
+
+    $ bundler install
 
 Then, run the following:
 
