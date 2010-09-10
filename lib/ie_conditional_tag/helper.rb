@@ -6,6 +6,7 @@ module IEConditionalTag
       result = IEConditionalTag.process(options) do |modified_options|
         tag(name, modified_options, true)
       end
+      result.chomp!
       if block_given?
         result << capture(&block)
         result << raw("</#{name}>")

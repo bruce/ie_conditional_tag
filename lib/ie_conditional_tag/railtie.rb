@@ -4,9 +4,7 @@ module IEConditionalTag
     require 'rails'
     class Railtie < Rails::Railtie
       initializer 'ie_conditional_tag.insert_into_active_record' do
-        ActiveSupport.on_load :action_pack do
-          IEConditionalTag::Railtie.insert
-        end
+        IEConditionalTag::Railtie.insert
       end
     end
   end

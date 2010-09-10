@@ -4,7 +4,7 @@ module IEConditionalTag
 
     def wrap(options = {})
       inside = yield(merge_options(options))
-      "<!--[if #{@expression}]><!-->#{inside}<!--<![endif]-->"
+      "<!--[if #{@expression}]><!-->#{inside}<!--<![endif]-->\n"
     end
     
   end

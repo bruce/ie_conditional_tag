@@ -4,7 +4,7 @@ class TestCondition < ActionView::TestCase
 
   test "wrapping a tag in a protected condition without additional options" do
     condition = IEConditionalTag::ProtectedCondition.new('IE 6', :class => 'ie6')
-    assert_equal('<!--[if IE 6]><body class="ie6"><![endif]-->',
+    assert_equal(%Q(<!--[if IE 6]><body class="ie6"><![endif]-->\n),
                  condition.wrap { |opts| tag(:body, opts, true) })
   end
 
