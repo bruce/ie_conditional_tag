@@ -18,7 +18,7 @@ IEConditionalTag.configure do |config|
 
   # For all other browsers
   # Note: Don't remove this line-- or other browsers won't get a
-  #       visible body tag!
+  #       visible tag!
   config.on '!IE'  
   
 end
