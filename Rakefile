@@ -10,7 +10,7 @@ begin
     gem.email = "bruce@codefluency.com"
     gem.homepage = "http://github.com/bruce/ie_conditional_tag"
     gem.authors = ["Anthony Burns", "Bruce Williams"]
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_dependency 'rails', '~> 3.0'
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
