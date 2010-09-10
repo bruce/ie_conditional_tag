@@ -6,7 +6,7 @@ module IEConditionalTag
 
   def self.process(options = {}, &block)
     config.inject('') do |result, condition|
-      result << condition.wrap(options, &block)
+      result << condition.wrap(options.dup, &block)
     end
   end
   

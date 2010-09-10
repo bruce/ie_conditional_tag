@@ -18,13 +18,24 @@ class TestIEConditionalTag < ActionView::TestCase
   end
 
   test "browser body tag with no options and no block" do
-    rendered = ie_conditional_tag(:html)
-    assert rendered.include?('<!--[if lt IE 7]><html class="ie6"><![endif]-->')
-    assert rendered.include?('<!--[if IE 7]><html class="ie7"><![endif]-->')
-    assert rendered.include?('<!--[if IE 8]><html class="ie8"><![endif]-->')
-    assert rendered.include?('<!--[if IE 9]><html class="ie9"><![endif]-->')
-    assert rendered.include?('<!--[if gt IE 9]><html><![endif]-->')
-    assert rendered.include?('<!--[if !IE]><!--><html><!--<![endif]-->')
+    rendered = String.new(ie_conditional_tag(:html))
+    assert rendered.include?('<!--[if lt IE 7]><html class="ie6"><![endif]-->'), rendered
+    assert rendered.include?('<!--[if IE 7]><html class="ie7"><![endif]-->'), rendered
+    assert rendered.include?('<!--[if IE 8]><html class="ie8"><![endif]-->'), rendered
+    assert rendered.include?('<!--[if IE 9]><html class="ie9"><![endif]-->'), rendered
+    assert rendered.include?('<!--[if gt IE 9]><html><![endif]-->'), rendered
+    assert rendered.include?('<!--[if !IE]><!--><html><!--<![endif]-->'), rendered
   end
 
+  test "browser body tag with class option and no block" do
+    rendered = String.new(ie_conditional_tag(:html, :class => 'custom-class'))
+    assert rendered.include?('<!--[if lt IE 7]><html class="ie6 custom-class"><![endif]-->'), rendered
+    assert rendered.include?('<!--[if IE 7]><html class="ie7 custom-class"><![endif]-->'), rendered
+    assert rendered.include?('<!--[if IE 8]><html class="ie8 custom-class"><![endif]-->'), rendered
+    assert rendered.include?('<!--[if IE 9]><html class="ie9 custom-class"><![endif]-->'), rendered
+    assert rendered.include?('<!--[if gt IE 9]><html class="custom-class"><![endif]-->'), rendered
+    assert rendered.include?('<!--[if !IE]><!--><html class="custom-class"><!--<![endif]-->'), rendered
+  end
+
+  
 end
