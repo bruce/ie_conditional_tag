@@ -6,6 +6,8 @@ in an HTML document with IE conditional comments.  This is an
 alternate approach to conditional stylesheets and CSS hacks, and is
 explained in detail by [Paul Irish][1].
 
+You can learn more about conditional comments at [QuirksMode][2].
+
 Example
 -------
 
@@ -106,3 +108,4 @@ Copyright (c) 2010 Anthony Burns, Bruce Williams. See LICENSE for
 details.
 
   [1]: http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+  [2]: http://www.quirksmode.org/css/condcom.html
