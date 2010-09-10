@@ -5,8 +5,8 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "ie_conditional_tag"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{IE conditional comments for Rails}
+    gem.description = %Q{Provides an easy-to-use helper for generating multiple tags inside IE-specific conditional comments}
     gem.email = "bruce@codefluency.com"
     gem.homepage = "http://github.com/bruce/ie_conditional_tag"
     gem.authors = ["Anthony Burns", "Bruce Williams"]
