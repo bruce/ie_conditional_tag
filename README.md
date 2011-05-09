@@ -27,11 +27,11 @@ custom class:
 This would give you (with some prettied indentation):
 
     <!DOCTYPE html> 
-    <!--[if lt IE 7]><html class="ie6 some-custom-class"><![endif]-->
-    <!--[if IE 7]><html class="ie7 some-custom-class"><![endif]-->
-    <!--[if IE 8]><html class="ie8 some-custom-class"><![endif]-->
-    <!--[if IE 9]><html class="ie9 some-custom-class"><![endif]-->
-    <!--[if gt IE 9]><html class="some-custom-class"><![endif]-->
+    <!--[if lt IE 7]><html class="ie ie6 some-custom-class"><![endif]-->
+    <!--[if IE 7]><html class="ie ie7 some-custom-class"><![endif]-->
+    <!--[if IE 8]><html class="ie ie8 some-custom-class"><![endif]-->
+    <!--[if IE 9]><html class="ie ie9 some-custom-class"><![endif]-->
+    <!--[if gt IE 9]><html class="ie some-custom-class"><![endif]-->
     <!--[if !IE]><!--><html class="some-custom-class"><!--<![endif]--> 
       <head>
           <title>New HTML5 page</title>
@@ -92,7 +92,7 @@ You may want to look/tweak the settings there.
 
 Note: By default, when IE 6, 7, 8, 9 are given the CSS classes 'ie6',
 'ie7', 'ie8', and 'ie9' respectively.  IE > 9 has no additional class
-added (which may be overly optimistic).  YMMV.
+added besides 'ie' (which may be overly optimistic).  YMMV.
 
 Configuring
 -----------

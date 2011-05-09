@@ -6,6 +6,11 @@ require 'action_view'
 require 'action_controller'
 require 'action_controller/test_case'
 
+begin
+  require 'turn'
+rescue LoadError
+end
+
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
 
