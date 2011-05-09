@@ -10,7 +10,7 @@ namespace :gem do
     system "gem build ie_conditional_tag.gemspec"
   end
   task :release => :build do
-    system "gem push ie_conditional_tag-#{IEConditionalTag::VERSION}"
+    system "gem push ie_conditional_tag-#{IEConditionalTag::VERSION}.gem"
   end
 end
 
