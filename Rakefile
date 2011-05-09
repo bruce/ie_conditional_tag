@@ -1,20 +1,17 @@
 require 'rubygems'
 require 'rake'
 
-begin
-  require 'jeweler'
-  Jeweler::Tasks.new do |gem|
-    gem.name = "ie_conditional_tag"
-    gem.summary = %Q{IE conditional comments for Rails}
-    gem.description = %Q{Provides an easy-to-use helper for generating multiple tags inside IE-specific conditional comments}
-    gem.email = "bruce@codefluency.com"
-    gem.homepage = "http://github.com/bruce/ie_conditional_tag"
-    gem.authors = ["Anthony Burns", "Bruce Williams"]
-    gem.add_dependency 'rails', '~> 3.0'
+$LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
+
+require "ie_conditional_tag/version"
+
+namespace :gem do
+  task :build do
+    system "gem build ie_conditional_tag.gemspec"
   end
-  Jeweler::GemcutterTasks.new
-rescue LoadError
-  puts "Jeweler (or a dependency) not available. Install it with: gem install jeweler"
+  task :release => :build do
+    system "gem push ie_conditional_tag-#{IEConditionalTag::VERSION}"
+  end
 end
 
 require 'rake/testtask'
