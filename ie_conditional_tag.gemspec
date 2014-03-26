@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
  
   s.required_rubygems_version = ">= 1.3.6"
  
-  s.add_dependency "rails", "~> 3.0"
+  s.add_dependency "rails", ">= 3.0"
  
   s.files        = Dir.glob("{bin,lib,test}/**/*") + %w(LICENSE README.md)
   s.require_path = 'lib'
