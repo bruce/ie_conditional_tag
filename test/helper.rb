@@ -1,14 +1,15 @@
 require 'rubygems'
 require 'test/unit'
+
 require 'active_support'
 require 'active_support/core_ext'
 require 'action_view'
 require 'action_controller'
 require 'action_controller/test_case'
 
-begin
-  require 'turn'
-rescue LoadError
+if ENV['COVERAGE']
+  require 'simplecov'
+  SimpleCov.start
 end
 
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))

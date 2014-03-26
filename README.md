@@ -14,44 +14,50 @@ Example
 Shown generating the `html` tag (as [recommended][1]), and adding a
 custom class:
 
-    <!DOCTYPE html>
-    <%= ie_conditional_tag :html, :class => 'some-custom-class' %>
-      <head>
-          <title>New HTML5 page</title>
-      </head>
-      <body>
-        <%= yield %>
-      </body>
-    </html>
+```erb
+<!DOCTYPE html>
+<%= ie_conditional_tag :html, class: 'some-custom-class' %>
+  <head>
+      <title>New HTML5 page</title>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+</html>
+```
 
 This would give you (with some prettied indentation):
 
-    <!DOCTYPE html> 
-    <!--[if lt IE 7]><html class="ie ie6 some-custom-class"><![endif]-->
-    <!--[if IE 7]><html class="ie ie7 some-custom-class"><![endif]-->
-    <!--[if IE 8]><html class="ie ie8 some-custom-class"><![endif]-->
-    <!--[if IE 9]><html class="ie ie9 some-custom-class"><![endif]-->
-    <!--[if gt IE 9]><html class="ie some-custom-class"><![endif]-->
-    <!--[if !IE]><!--><html class="some-custom-class"><!--<![endif]--> 
-      <head>
-          <title>New HTML5 page</title>
-      </head>
-      <body>
-        <!-- your content -->
-      </body>
-    </html>
+```html
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="ie ie6 some-custom-class"><![endif]-->
+<!--[if IE 7]><html class="ie ie7 some-custom-class"><![endif]-->
+<!--[if IE 8]><html class="ie ie8 some-custom-class"><![endif]-->
+<!--[if IE 9]><html class="ie ie9 some-custom-class"><![endif]-->
+<!--[if gt IE 9]><html class="ie some-custom-class"><![endif]-->
+<!--[if !IE]><!--><html class="some-custom-class"><!--<![endif]-->
+  <head>
+      <title>New HTML5 page</title>
+  </head>
+  <body>
+    <!-- your content -->
+  </body>
+</html>
+```
 
 `ie_conditional_tag` will also accept a block, so this also works:
-  
-    <!DOCTYPE html>
-    <%= ie_conditional_tag :html, :class => 'some-custom-class' do %>
-      <head>
-          <title>New HTML5 page</title>
-      </head>
-      <body>
-        <%= yield %>
-      </body>
-    <% end %>
+
+```html
+<!DOCTYPE html>
+<%= ie_conditional_tag :html, class: 'some-custom-class' do %>
+  <head>
+      <title>New HTML5 page</title>
+  </head>
+  <body>
+    <%= yield %>
+  </body>
+<% end %>
+```
 
 Wait, that's an ugly name!
 --------------------------
@@ -59,34 +65,40 @@ Wait, that's an ugly name!
 We aimed for descriptive and agnostic; you may want to add a helper to
 call it, eg:
 
-    module ApplicationHelper
+```ruby
+module ApplicationHelper
 
-      # ...
+  # ...
 
-      def html_tag(*args, &block)
-        ie_conditional_tag(*args, &block)
-      end
+  def html_tag(*args, &block)
+    ie_conditional_tag(*args, &block)
+  end
 
-    end
+end
+```
 
 Installation
 ------------
 
 Use bundler.  In your `Gemfile`:
 
-    gem 'ie_conditional_tag'
+```ruby
+gem 'ie_conditional_tag'
+```
 
 Install it:
 
-    $ bundler install
+```shell
+$ bundler install
+```
 
 Then, run the following:
 
-    $ rails generate ie_conditional_tag:install
+```shell
+$ rails generate ie_conditional_tag:install
+```
 
-This will add the following initializer:
-
-    config/initializers/ie_conditional_tag.rb
+This will add `config/initializers/ie_conditional_tag.rb`.
 
 You may want to look/tweak the settings there.
 
@@ -104,13 +116,10 @@ Dependencies
 
 This plugin is only designed to work with Rails 3.0+.
 
-Note: We're happy to accept pull requests that add backwards
-compatibility with older versions of Rails.
-
 Copyright
 ---------
 
-Copyright (c) 2010 Anthony Burns, Bruce Williams. See LICENSE for
+Copyright (c) 2010-2014 Anthony Burns, Bruce Williams. See LICENSE for
 details.
 
   [1]: http://paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/

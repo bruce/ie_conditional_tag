@@ -13,5 +13,5 @@ class TestConfiguration < ActiveSupport::TestCase
     end
     assert_equal 1, IEConditionalTag.config.conditions.size
   end
-  
+
 end
